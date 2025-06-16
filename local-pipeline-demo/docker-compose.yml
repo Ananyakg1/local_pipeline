@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    container_name: local-pipeline-demo-app
+    volumes:
+      - ./src:/app/src
+    command: python src/app.py
