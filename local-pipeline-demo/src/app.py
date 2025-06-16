@@ -5,7 +5,7 @@ app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspa
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html') 
 
 @app.route('/api/message')
 def api_message():
