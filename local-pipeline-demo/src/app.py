@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request
 import os
 
 app = Flask(__name__, template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates'))
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Sample quiz data
 QUIZ_QUESTIONS = [
@@ -27,6 +28,7 @@ QUIZ_QUESTIONS = [
 
 @app.route('/')
 def home():
+    print("Rendering quiz.html")
     return render_template('quiz.html')
 
 @app.route('/api/questions')
@@ -57,4 +59,4 @@ def submit_quiz():
     return jsonify({"score": score, "total": len(QUIZ_QUESTIONS), "results": results})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
