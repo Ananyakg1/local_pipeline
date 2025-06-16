@@ -6,7 +6,7 @@ on:
       - 'local-pipeline-demo/**'
 
 jobs:
-  lint:
+  lint: 
     name: Lint Python code
     runs-on: ubuntu-latest
     steps:
