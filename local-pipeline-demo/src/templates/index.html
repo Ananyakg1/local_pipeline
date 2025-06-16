@@ -9,12 +9,24 @@
         .container { max-width: 600px; margin: 60px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ccc; padding: 32px; text-align: center; }
         h1 { color: #2d6cdf; }
         p { color: #333; }
+        #api-message { margin-top: 24px; font-size: 1.2em; color: #00796b; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hello from the local pipeline demo app!</h1>
-        <p>This page is rendered using a Flask HTML template.</p>
+        <h1>Frontend: Local Pipeline Demo App</h1>
+        <p>This page is rendered using a Flask HTML template and fetches data from the backend API.</p>
+        <div id="api-message">Loading message from backend...</div>
     </div>
+    <script>
+        fetch('/api/message')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('api-message').textContent = data.message;
+            })
+            .catch(() => {
+                document.getElementById('api-message').textContent = 'Failed to load message from backend.';
+            });
+    </script>
 </body>
 </html>
