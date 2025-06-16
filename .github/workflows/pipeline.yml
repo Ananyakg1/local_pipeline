@@ -6,8 +6,8 @@ on:
       - 'local-pipeline-demo/**'
 
 jobs:
-  lint: 
-    name: Lint Python code 
+  lint:
+    name: Lint Python code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
